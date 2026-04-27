@@ -1,0 +1,33 @@
+{
+  "name": "everything-zk-verify",
+  "version": "0.1.0",
+  "description": "ZK-powered privacy verification + AI Agent matchmaking + privacy payment platform for Onchain OS",
+  "private": true,
+  "workspaces": [
+    "agent",
+    "sdk"
+  ],
+  "scripts": {
+    "start": "npm run start:agent",
+    "start:agent": "cd agent && npm run start",
+    "start:frontend": "cd frontend && npm run dev",
+    "build": "npm run build:agent && npm run build:sdk",
+    "build:agent": "cd agent && npm run build",
+    "build:sdk": "cd sdk && npm run build",
+    "test": "npm run test:contracts && npm run test:agent",
+    "test:contracts": "cd contracts && forge test",
+    "test:agent": "cd agent && npm test"
+  },
+  "keywords": [
+    "zk",
+    "zero-knowledge",
+    "privacy",
+    "agent",
+    "matchmaking",
+    "escrow",
+    "onchain-os",
+    "okx"
+  ],
+  "author": "Everything ZK Verify Team",
+  "license": "MIT"
+}

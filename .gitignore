@@ -1,0 +1,10 @@
+node_modules/
+dist/
+build/
+.DS_Store
+*.log
+.env
+.env.local
+*.xcuserdata/
+DerivedData/
+vite.config.ts.timestamp-*.mjs
