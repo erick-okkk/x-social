@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const CONTRACT_DIR = '/Users/xianruiqin/Documents/okx/xlayer/xlayer-toolkit/railgun/contract';
+const CONTRACT_DIR = path.join(__dirname, '../railgun/contract');
 const NVM_INIT = `export NVM_DIR="$HOME/.nvm" && [ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh" && nvm use 20 > /dev/null 2>&1`;
 
 function run(cmd, timeout = 60000) {

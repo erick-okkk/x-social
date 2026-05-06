@@ -8,3 +8,8 @@ build/
 *.xcuserdata/
 DerivedData/
 vite.config.ts.timestamp-*.mjs
+railgun/contract/node_modules/
+railgun/contract/cache/
+railgun/contract/artifacts/
+railgun/contract/deployments.json
+railgun/contract/node.out
