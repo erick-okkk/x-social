@@ -7,7 +7,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const CONTRACT_DIR = path.join(__dirname, '../railgun/contract');
+// submodule 路径 → 环境变量覆盖 → fallback 绝对路径
+const CONTRACT_DIR = process.env.RAILGUN_CONTRACT_DIR
+  || path.join(__dirname, '../railgun/xlayer-toolkit/railgun/contract');
 const NVM_INIT = `export NVM_DIR="$HOME/.nvm" && [ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh" && nvm use 20 > /dev/null 2>&1`;
 
 function run(cmd, timeout = 60000) {
