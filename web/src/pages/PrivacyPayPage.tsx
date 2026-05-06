@@ -72,6 +72,8 @@ export function PrivacyPayPage() {
   const [agentSigned, setAgentSigned] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [done, setDone] = useState(false);
+  const [network, setNetwork] = useState<'local' | 'testnet'>('local');
+  const [explorerBase, setExplorerBase] = useState<string | null>(null);
 
   const [steps, setSteps] = useState<Step[]>([
     {
@@ -143,6 +145,8 @@ export function PrivacyPayPage() {
       const result = await apiPromise;
       if (result.ok) {
         txs = result.txs;
+        if (result.network === 'testnet') setNetwork('testnet');
+        if (result.explorer) setExplorerBase(result.explorer);
       }
     } catch (e) {
       console.warn('[railgun] API call failed, using mock tx hashes', e);
@@ -185,7 +189,14 @@ export function PrivacyPayPage() {
             <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
               🛡️ 隐私支付
             </h1>
-            <p className="text-xs text-gray-400">Powered by Railgun · OKX X Layer</p>
+            <p className="text-xs text-gray-400">
+              Powered by Railgun · OKX X Layer
+              {network === 'testnet' && (
+                <span className="ml-2 bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded-full text-[10px] font-medium">
+                  Testnet
+                </span>
+              )}
+            </p>
           </div>
         </div>
 
@@ -271,9 +282,20 @@ export function PrivacyPayPage() {
                   </div>
                   <p className="text-xs text-gray-400 mt-0.5">{step.subtitle}</p>
                   {step.status === 'done' && step.tx && (
-                    <p className="text-[10px] text-green-600 mt-1 font-mono">
-                      {step.txLabel}: {shortTx(step.tx)}
-                    </p>
+                    explorerBase ? (
+                      <a
+                        href={`${explorerBase}/${step.tx}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[10px] text-blue-500 underline mt-1 font-mono block"
+                      >
+                        {step.txLabel}: {shortTx(step.tx)} ↗
+                      </a>
+                    ) : (
+                      <p className="text-[10px] text-green-600 mt-1 font-mono">
+                        {step.txLabel}: {shortTx(step.tx)}
+                      </p>
+                    )
                   )}
                 </div>
                 <div className="flex-shrink-0 text-right">
