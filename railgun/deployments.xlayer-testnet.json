@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "network": "X Layer Testnet",
+    "chainId": 1952,
+    "rpc": "https://testrpc.xlayer.tech",
+    "explorer": "https://www.oklink.com/xlayer-test",
+    "deployedAt": "2026-04-23",
+    "deployer": "0xAbac9F2f43189d9c20CEA261Fc4331784c22FB9d"
+  },
+  "railgunSmartWallet": "0x5b15Df12668ccdc92f29cd5058F0Dfd4Dc915A10",
+  "testERC20": "0x6F11c3D5fEb651c27c07F89B83286fc8A306eBe1",
+  "relayAdapt": "0x11d41dC2942D33D12Eb989459a8edEAF82134b89",
+  "weth9": "0x8A5C0dA67822b7F8A629a2f198c9e263BB38eb1d",
+  "poseidonT3": "0x630A8F4845fAa7888DF576bc92B5815b8d34D37f",
+  "poseidonT4": "0x03FDa3b940f7a5942aC2310A93FcE577A2182614",
+  "proxyAdmin": "0x6DE120E358eb1742d45dE73CB08c6B91C33Ae560",
+  "implementation": "0xd31f6f127FF321bcB50B01f93a10dAED5bA40004",
+  "treasuryProxy": "0x13F1B20490699fec006Ff56Da885532bFde21779",
+  "delegator": "0x74C50DeE86fE0d44E8277D33c38f144530C6C54f",
+  "voting": "0x51531Ca59f921cB57994A899848daB405Eb44428",
+  "staking": "0x629d5fCd6C5adC18b5D107405ef7C862394510Ec",
+  "rail": "0x99B5341244E530bD78dc90fF71C5E7afc9626db0"
+}
